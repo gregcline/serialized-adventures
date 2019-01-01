@@ -21,7 +21,7 @@ config :logger, level: :info
 
 # Configure your database
 config :hello, Hello.Repo,
-  url: System.get_env("DATABASE_URL"),
+  url: {:system, "DATABASE_URL"},
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
@@ -31,9 +31,9 @@ config :goth,
 # basic auth
 config :serialized_adventures,
   auth_config: [
-    username: System.get_env("AUTH_USER"),
-    password: System.get_env("AUTH_PASS"),
-    realm: System.get_env("AUTH_REALM")
+    username: {:system, "AUTH_USER"},
+    password: {:system, "AUTH_PASS"},
+    realm: {:system, "AUTH_REALM"}
   ]
 
 # ## SSL Support
