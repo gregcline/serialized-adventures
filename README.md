@@ -1,5 +1,7 @@
 # SerializedAdventures
 
+This is a personal project intended to be used as an individual writing platform. It lets you create story groups for short-story series' and supports markdown for story formatting. It's intended to be used with Google Cloud Storage for story covers.
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
