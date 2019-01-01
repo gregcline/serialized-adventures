@@ -22,6 +22,7 @@ config :logger, level: :info
 # Configure your database
 config :hello, Hello.Repo,
   url: System.get_env("DATABASE_URL"),
+  database: "serialized_adventures",
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
