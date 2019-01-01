@@ -21,8 +21,8 @@ config :logger, level: :info
 
 # Configure your database
 config :hello, Hello.Repo,
-  url: System.get_env("DATABASE_URL"),
-  database: "serialized_adventures",
+  url:
+    "postgres://gyyfycywxerzsl:c0172954569b88a93ce30f9bf382b81863ec9dc3f1c073510f684bd70c1fac6e@ec2-54-243-212-227.compute-1.amazonaws.com:5432/d5lg9v4tgvlhqp",
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
