@@ -28,6 +28,14 @@ config :hello, Hello.Repo,
 config :goth,
   json: System.get_env("GCS_CREDENTIALS")
 
+# basic auth
+config :serialized_adventures,
+  auth_config: [
+    username: System.get_env("AUTH_USER"),
+    password: System.get_env("AUTH_PASS"),
+    realm: System.get_env("AUTH_REALM")
+  ]
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
@@ -79,4 +87,3 @@ config :goth,
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
