@@ -17,6 +17,10 @@ defmodule SerializedAdventuresWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/plotless", PageController, :plotless
+
+    resources "/story-groups", StoryGroupController
+    resources "/stories", StoryController
   end
 
   # Other scopes may use custom stacks.

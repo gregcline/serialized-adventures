@@ -1,0 +1,18 @@
+<%= form_for @changeset, Routes.story_group_path(@conn, :create), [multipart: true], fn f -> %>
+  <label>
+    Name: <%= text_input f, :name %>
+  </label>
+  <label>
+    Published: <%= checkbox f, :published %>
+  </label>
+  <label>
+    Display Order: <%= text_input f, :display_order %>
+  </label>
+  <label>
+    Cover Image: <%= file_input f, :image_link %>
+  <label>
+    Content Type: <%= select f, :content_type, [Plotful: "plotful", Plotless: "plotless"] %>
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_for @changeset, Routes.story_path(@conn, :update, @story.id), [multipart: true], fn f -> %>
+  <label>
+    Name: <%= text_input f, :name %>
+  </label>
+
+  <label>
+    Published: <%= checkbox f, :published %>
+  </label>
+
+  <label>
+    Display order: <%= text_input f, :display_order %>
+  </label>
+
+  <label>
+    Story group: <%= select f, :story_group_id, group_select(@groups) %>
+  </label>
+
+  <%= submit submit_name() %>
+
+  <label>
+    Content: <%= textarea f, :content, id: "body-editor" %>
+  </label>
+<% end %>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>var simplemde = new SimpleMDE();</script>

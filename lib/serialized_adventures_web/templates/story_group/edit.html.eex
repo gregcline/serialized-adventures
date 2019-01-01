@@ -1,0 +1,26 @@
+<h1>Edit Story group</h1>
+
+<%= form_for @changeset, Routes.story_group_path(@conn, :update, @story_group.id), [multipart: true], fn f -> %>
+  <label>
+    Name: <%= text_input f, :name %>
+  </label>
+  <label>
+    Published: <%= checkbox f, :published %>
+  </label>
+  <label>
+    Display Order: <%= text_input f, :display_order %>
+  </label>
+  <label>
+    Cover Image:
+    <div class="current-cover">
+      Current: <img src="<%= group_cover(@changeset.data) %>" />
+    </div>
+    <%= file_input f, :image_link %>
+  </label>
+  <label>
+    Content Type: <%= select f, :content_type, [Plotful: "plotful", Plotless: "plotless"] %>
+  </label>
+
+  <%= submit "Submit" %>
+  <button><%= link "Back", to: Routes.story_group_path(@conn, :index) %></button>
+<% end %>

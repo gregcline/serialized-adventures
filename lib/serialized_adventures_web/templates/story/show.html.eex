@@ -1,0 +1,20 @@
+<div>
+<div class="story-title"><h3><strong><%= @story.name %></strong></h3></div>
+<div class="content">
+  <%= markdown(@story.content) %>
+</div>
+<div class="story-nav">
+  <%= if @context.surrounding.prev do %>
+    <%= link "Prev", to: Routes.story_path(@conn, :show, @context.surrounding.prev.id) %>
+  <% else %>
+    <div></div>
+  <% end %>
+
+  <%= link "Back to Story", to: Routes.story_group_path(@conn, :show, @context.group_id) %>
+
+  <%= if @context.surrounding.next do %>
+    <%= link "Next", to: Routes.story_path(@conn, :show, @context.surrounding.next.id) %>
+  <% else %>
+    <div></div>
+  <% end %>
+</div>

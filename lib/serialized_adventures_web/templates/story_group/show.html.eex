@@ -1,0 +1,11 @@
+<h1><%= @story_group.name %></h1>
+<div class="story-container">
+  <%= for story <- @story_group.stories do %>
+    <div class="story">
+      <a href="<%= Routes.story_path(@conn, :show, story.id) %>">
+        <img src="<%= story_cover(story) %>"/>
+        <%= story.name %>
+      </a>
+    </div>
+  <% end %>
+</div>

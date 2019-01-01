@@ -4,27 +4,32 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SerializedAdventures · Phoenix Framework</title>
+    <title>serialized adventures</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/SA.png"/>
   </head>
   <body>
     <header>
-      <section class="container">
-        <nav role="navigation">
+      <div id="logo">
+        <h1 class="logo">
+        <a href="<%= Routes.static_path(@conn, "/") %>" class="site-title logo">
+          SERIALIZED ADVENTURES
+        </a>
+        </h1>
+      </div>
+        <nav id="top-nav" role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <li><a href="<%= Routes.static_path(@conn, "/") %>">PLOTFUL</a></li>
+            <li><a href="<%= Routes.static_path(@conn, "/plotless") %>">PLOTLESS</a></li>
           </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
     </header>
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </main>
+    <footer>serializedadventures@gmail.com</footer>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

@@ -42,7 +42,12 @@ defmodule SerializedAdventures.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:arc_ecto, "~> 0.11.1"},
+      {:arc, "~> 0.11.0"},
+      {:arc_gcs, "~> 0.1.0"},
+      {:earmark, "~> 1.3"},
+      {:basic_auth, "~> 2.2.2"}
     ]
   end
 

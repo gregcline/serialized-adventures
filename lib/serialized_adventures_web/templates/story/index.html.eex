@@ -1,0 +1,32 @@
+<h1>Listing Stories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Name</th>
+      <th>Published</th>
+      <th>Display order</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for story <- @stories do %>
+    <tr>
+      <td><%= story.content %></td>
+      <td><%= story.name %></td>
+      <td><%= story.published %></td>
+      <td><%= story.display_order %></td>
+
+      <td>
+        <%= link "Show", to: Routes.story_path(@conn, :show, story) %>
+        <%= link "Edit", to: Routes.story_path(@conn, :edit, story) %>
+        <%= link "Delete", to: Routes.story_path(@conn, :delete, story), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Story", to: Routes.story_path(@conn, :new) %></span>

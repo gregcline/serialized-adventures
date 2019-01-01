@@ -1,0 +1,32 @@
+<h1>Listing Story Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Published</th>
+      <th>Display order</th>
+      <th>Image</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for group <- @story_groups do %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= group.published %></td>
+      <td><%= group.display_order %></td>
+      <td><img src="<%= group_cover(group) %>"/></td>
+
+      <td>
+        <%= link "Show", to: Routes.story_group_path(@conn, :show, group) %>
+        <%= link "Edit", to: Routes.story_group_path(@conn, :edit, group) %>
+        <%= link "Delete", to: Routes.story_group_path(@conn, :delete, group), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Story Group", to: Routes.story_group_path(@conn, :new) %></span>
